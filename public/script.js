@@ -40,3 +40,28 @@ function sendMessage() {
     messageInput.value = "";
   }
 }
+document.addEventListener('DOMContentLoaded', function() {
+  var copyButtons = document.querySelectorAll('.copy-button');
+
+  copyButtons.forEach(function(button) {
+    button.addEventListener('click', function() {
+      var codeBlock = this.parentElement.querySelector('code');
+      var codeText = codeBlock.textContent || codeBlock.innerText;
+
+      navigator.clipboard.writeText(codeText)
+        .then(function() {
+          button.innerText = 'Copied!';
+          button.disabled = true;
+          setTimeout(function() {
+            button.innerText = 'Copy';
+            button.disabled = false;
+          }, 2000);
+        })
+        .catch(function(err) {
+          console.error('Failed to copy text: ', err);
+        });
+    });
+  });
+});
+
+
