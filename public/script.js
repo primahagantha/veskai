@@ -40,28 +40,36 @@ function sendMessage() {
     messageInput.value = "";
   }
 }
-document.addEventListener('DOMContentLoaded', function() {
-  var copyButtons = document.querySelectorAll('.copy-button');
+document.addEventListener("DOMContentLoaded", () => {
+  const typingSpeed = 100; // Adjust the typing speed here (the smaller the value, the faster the animation)
+  const typingElement = document.getElementById("typing-text");
+  const codeText = typingElement.textContent || typingElement.innerText;
 
-  copyButtons.forEach(function(button) {
-    button.addEventListener('click', function() {
-      var codeBlock = this.parentElement.querySelector('code');
-      var codeText = codeBlock.textContent || codeBlock.innerText;
+  // Clear the text content in the code block
+  typingElement.textContent = "";
 
-      navigator.clipboard.writeText(codeText)
-        .then(function() {
-          button.innerText = 'Copied!';
-          button.disabled = true;
-          setTimeout(function() {
-            button.innerText = 'Copy';
-            button.disabled = false;
-          }, 2000);
-        })
-        .catch(function(err) {
-          console.error('Failed to copy text: ', err);
-        });
-    });
+  let i = 0;
+  const typingInterval = setInterval(() => {
+    if (i < codeText.length) {
+      typingElement.textContent += codeText.charAt(i);
+      i++;
+    } else {
+      clearInterval(typingInterval);
+    }
+  }, typingSpeed);
+
+  const copyButton = document.querySelector(".copy-button");
+  copyButton.addEventListener("click", () => {
+    navigator.clipboard
+      .writeText(codeText)
+      .then(() => {
+        copyButton.innerText = "Copied!";
+        setTimeout(() => {
+          copyButton.innerText = "Copy";
+        }, 2000);
+      })
+      .catch((err) => {
+        console.error("Failed to copy text: ", err);
+      });
   });
 });
-
-
