@@ -67,25 +67,33 @@ header {
 .code-block {
   position: relative;
 }
+
 .typing-text {
+  color: #00ff00;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
   width: 82ch;
-  animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+  animation: typing 2s steps(22), blink 0.5s step-end infinite alternate;
   white-space: nowrap;
   overflow: hidden;
   border-right: 3px solid;
   font-family: monospace;
-  font-size: 2em;
+  font-size: 8px;
 }
+
 @keyframes typing {
   from {
-    width: 0
+    width: 0;
   }
 }
+
 @keyframes blink {
   20% {
-    border-color: transparent
+    border-color: transparent;
   }
 }
+
 .code-block pre {
   margin: 0;
 }
@@ -112,10 +120,10 @@ header {
   background-color: #b6b0b0;
 }
 
-
 .button-roll {
-  color: #000000
+  color: #000000;
 }
+
 section {
   padding: 80px 0;
 }
@@ -124,27 +132,78 @@ section h2 {
   font-size: 32px;
   margin-bottom: 30px;
 }
+
 .cardbox {
-  background-color: rgba(255, 105, 180, 0.6); /* Pink color with 50% opacity */
+  background-color: rgba(255, 105, 180, 0.6);
+  /* Pink color with 50% opacity */
   padding: 20px;
   border-radius: 4px;
   margin-bottom: 20px;
 }
 
 .cardbox-support {
-  background-color: rgba(14, 247, 61, 0.9); /* Pink color with 50% opacity */
+  background-color: rgba(14, 247, 61, 0.9);
+  /* Pink color with 50% opacity */
   padding: 20px;
   border-radius: 4px;
   margin-bottom: 20px;
 }
 
 .cardbox-donate {
-  background-color: rgba(0, 191, 255, 0.9); /* Light blue color with 90% opacity */
+  background-color: rgba(0, 191, 255, 0.9);
+  /* Light blue color with 90% opacity */
   padding: 20px;
   border-radius: 4px;
   margin-bottom: 20px;
 }
-/* styles.css */
+
+/* Add media queries for responsiveness */
+
+/* For small screens */
+@media screen and (max-width: 767px) {
+  .jumbotron h1 {
+    font-size: 28px;
+  }
+
+  .jumbotron p {
+    font-size: 16px;
+  }
+
+  .code-block .typing-text {
+    font-size: 6px;
+  }
+}
+
+/* For medium screens */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .jumbotron h1 {
+    font-size: 32px;
+  }
+
+  .jumbotron p {
+    font-size: 16px;
+  }
+
+  .code-block .typing-text {
+    font-size: 6px;
+  }
+}
+
+/* For large screens */
+@media screen and (min-width: 1024px) {
+  .jumbotron h1 {
+    font-size: 40px;
+  }
+
+  .jumbotron p {
+    font-size: 18px;
+  }
+
+  .code-block .typing-text {
+    font-size: 8px;
+  }
+}
+
 .btn {
   display: inline-block;
   padding: 10px 20px;
@@ -158,12 +217,14 @@ section h2 {
 .btn:hover {
   background-color: #ff1493;
 }
+
 /* Rest of the code remains the same */
 
 .btn-invite {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #00ff00; /* Green color */
+  background-color: #00ff00;
+  /* Green color */
   color: #fff;
   text-decoration: none;
   border-radius: 4px;
@@ -171,12 +232,13 @@ section h2 {
 }
 
 .btn-invite:hover {
-  background-color: #00cc00; /* Darker green color on hover */
+  background-color: #00cc00;
+  /* Darker green color on hover */
 }
 
 .btn-image {
-  display: block;
-  max-width: 200px;
+  display: flex;
+  max-width: 300px;
   margin: 0 auto;
 }
 
