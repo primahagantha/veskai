@@ -45,7 +45,12 @@ body {
 .message_submit_form:focus {
   outline: none;
 }
+.embed-trakter{
+  width: 350px;
+  height: 350px;
+  border: 0;
 
+}
 /* line 12, ../../01 cl html template/03_jun 2019/186_Gaiming_html/sass/_common.scss */
 input:hover, input:focus {
   outline: none !important;
@@ -450,7 +455,7 @@ ul {
   margin-bottom: -50px;
 }
 .anyClass {
-  height:300px;
+  height:100%;
   width: 100%; 
   overflow-y: scroll;
   overflow-x: hidden;
