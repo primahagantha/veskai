@@ -449,6 +449,25 @@ ul {
 .padding_less_40 {
   margin-bottom: -50px;
 }
+.anyClass {
+  height:300px;
+  width: 100%; 
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.anyClass::-webkit-scrollbar {
+  width: 1em;
+}
+
+.anyClass::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+.anyClass::-webkit-scrollbar-thumb {
+background-color: darkgrey;
+outline: 1px solid slategrey;
+}
 
 /* line 232, ../../01 cl html template/03_jun 2019/186_Gaiming_html/sass/_common.scss */
 .z_index {
