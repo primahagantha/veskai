@@ -1,3 +1,4 @@
 ﻿# veskai
 Veskai discord website
-Join Discord.gg/veskai
+Join veskai.com/discord
+
