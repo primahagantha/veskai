@@ -1,0 +1,17 @@
+{
+    "name": "Veskai Official",
+    "short_name": "Veskai",
+    "description": "Server Indonesia yang membahas berbagai macam topic, mulai dari anime, game, film, art, otomotive, hardware, dan lain sebagainya, intinya kita nongkrong bareng. Di server ini juga memiliki bot dan channel yang tertata rapi dengan fitur yang jarang ada di server lain. Ajak teman mu untuk meramaikan server! kita sangat welcome ke user discord lama maupun baru, dan siap untuk memberi guide/tutorial juga buat kalian yang masih kurang faham.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#000000",
+    "icons": [
+      {
+        "src": "img/logo.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      }
+    ]
+  }
+  

@@ -29,6 +29,8 @@
     <link rel="stylesheet" href="css/slick.css">
     <!-- style CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="js/manifest.json">
+
 </head>
 
 <body>
@@ -369,7 +371,19 @@
     <script src="js/mail-script.js"></script>
     <!-- custom js -->
     <script src="js/custom.js"></script>
-
+    <!--manifest js-->
+    <script>
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('js/service-worker.js') // Ubah path berkas sesuai dengan struktur folder Anda
+            .then(registration => {
+              console.log('Service Worker registered with scope:', registration.scope);
+            })
+            .catch(error => {
+              console.error('Service Worker registration failed:', error);
+            });
+        }
+      </script>
+      
     <!-- widget channel-->
     <script src='https://cdn.jsdelivr.net/npm/@widgetbot/crate@3' async defer>
         new Crate({
