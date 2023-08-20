@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Veskai Discord</title>
+</head>
+<body>
+    <!-- Your website content goes here -->
+
+    <!-- JavaScript code for redirect -->
+    <script type="text/javascript">
+        // Redirect to Discord
+        window.location.replace("https://discord.gg/sVqa3PJpHc");
+    </script>
+</body>
+</html>
